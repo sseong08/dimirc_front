@@ -129,4 +129,52 @@ body {
   #authSection button:hover, #logoutBtn:hover {
     background-color: #ff69b4;
   }
-  
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  #username, #major, #sel_maj, input[type="submit"], #input, #send, #leave {
+    font-size: 14px;
+    padding: 8px;
+    width: 90%;
+  }
+
+  #authSection input[type="email"],
+  #authSection input[type="password"],
+  #authSection input[type="text"],
+  #authSection button {
+    font-size: 14px;
+    padding: 8px;
+    width: 95%;
+  }
+
+  #chat {
+    padding: 10px;
+  }
+
+  #messages {
+    height: 180px;
+  }
+
+  #logoutBtn {
+    width: 95%;
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  h2 {
+    font-size: 1.3em;
+  }
+
+  #messages {
+    height: 150px;
+  }
+}
