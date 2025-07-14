@@ -19,7 +19,7 @@ function majorToKorean(code) {
     case 'EB': return 'E-비즈니스';
     case 'DC': return '디지털콘텐츠';
     case 'WP': return '웹프로그래밍';
-    case 'HD': return '해킹 방어과';
+    case 'HD': return '해킹방어과';
     default: return '알 수 없음';
   }
 }
@@ -90,7 +90,8 @@ leaveBtn.addEventListener('click', () => {
     socket.disconnect();
     chatDiv.style.display = 'none';
     form.style.display = 'block';
-    usernameInput.style.display = 'block';
+    location.reload();
+    // usernameInput.style.display = 'block';
     status.innerText = '닉네임과 과를 입력하고 다시 시작하세요';
 });
 
