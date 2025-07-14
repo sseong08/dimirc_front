@@ -33,6 +33,8 @@ form.addEventListener('submit', (e) => {
     alert('닉네임을 입력해주세요');
     return;
   }
+  localStorage.setItem('savedUsername', username);
+  localStorage.setItem('savedMajor', major);
 
   form.style.display = 'none';
   usernameInput.style.display = 'none';
@@ -101,6 +103,15 @@ leaveBtn.addEventListener('click', () => {
 
 // 로그인
 window.addEventListener('DOMContentLoaded', async () => {
+  const savedUsername = localStorage.getItem('savedUsername');
+  const savedMajor = localStorage.getItem('savedMajor');
+  if (savedUsername) {
+    usernameInput.value = savedUsername;
+  }
+  if (savedMajor) {
+    majorSelect.value = savedMajor;
+  }
+
   const { data: { session } } = await supabase.auth.getSession()
   if (session) {
     supaemail = session.user.email;
@@ -167,6 +178,8 @@ document.getElementById('logoutBtn').addEventListener('click', async () => {
       // console.error('로그아웃 실패:', error.message)
       alert('로그아웃 실패: ',error.message)
     } else {
+      localStorage.removeItem('savedUsername');
+      localStorage.removeItem('savedMajor');
       alert('로그아웃 되었습니다.');
       location.reload();
     }
